@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "ChromeTools",
-	"description": "ChromeTools",
-    "version": "1.0",
+    "name": "YouTube Utils",
+	"description": "A Chrome extension that provides various utilities for YouTube, such as downloading videos, extracting audio, and ad blocking.",
+    "version": "1.0 Beta",
 
     "permissions": ["storage", "tabs"],
 
@@ -15,15 +15,16 @@
     },
 	
 	"browser_action": {			  			
-			"default_title": "ChromeTools",
+			"default_title": "YouTube Utils",
 			"default_icon":"images/image.png",
 			"default_popup": "popup/popup.html"
 	},
 
     "content_scripts" : [
         {
-            "matches":["<all_urls>"],
-            "js":["content/content.js"]
+            "matches":["*://*.youtube.com/*"],
+            "js":["content/content.js"],
+            "run_at": "document_end"
         }
     ],
     
